@@ -4,15 +4,15 @@
 <h:body>
 	<h:form>
 		<h:panelGrid columns="2">
-			Marca: <h:inputText />
+			Marca: <h:inputText value="#{automovelBean.automovel.marca}"/>
 
-			Modelo: <h:inputText />
+			Modelo: <h:inputText value="#{automovelBean.automovel.modelo}" />
 
-			Ano de Fabricação: <h:inputText />
+			Ano de Fabricação: <h:inputText value="#{automovelBean.automovel.anoFabricacao}"/>
 
-			Ano do Modelo: <h:inputText />
+			Ano do Modelo: <h:inputText value="#{automovelBean.automovel.anoModelo}"/>
 
-			Observações: <h:inputTextarea />
+		 	Observações: <h:inputTextarea value="#{automovelBean.automovel.observacoes}"/>
 			
 			<h:commandButton value="Salvar" action="#{automovelBean.salvar}"/>
 		</h:panelGrid>
