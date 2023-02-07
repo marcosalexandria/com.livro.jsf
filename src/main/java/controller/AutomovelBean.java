@@ -18,7 +18,7 @@ public class AutomovelBean {
 	}
 
 
-	public void salvar() {
+	public void salvar(Automovel automovel) {
 		System.out.println(automovel.getMarca());
 	}
 }
