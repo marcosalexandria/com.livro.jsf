@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			Marca: <h:inputText />
+
+			Modelo: <h:inputText />
+
+			Ano de Fabricação: <h:inputText />
+
+			Ano do Modelo: <h:inputText />
+
+			Observações: <h:inputTextarea />
+			
+			<h:commandButton value="Salvar" action="#{automovelBean.salvar}"/>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>
