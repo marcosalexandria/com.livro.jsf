@@ -21,4 +21,13 @@ public class AutomovelRepository {
 		Query q = em.createQuery("SELECT a FROM Automovel a", Automovel.class);
 		return q.getResultList();
 	}
+	
+	public void exclui(Automovel automovel) {
+		EntityManager em = JPAUtil.getEntityManager();
+		em.getTransaction().begin();
+		Automovel aut = em.merge(automovel);
+		em.remove(aut);
+		em.getTransaction().commit();
+		em.close();
+	}
 }

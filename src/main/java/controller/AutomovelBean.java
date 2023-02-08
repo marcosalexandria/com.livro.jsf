@@ -24,6 +24,10 @@ public class AutomovelBean {
 		}
 		return automoveis;
 	}
+	
+	public void exclui(Automovel automovel) {
+		automovelRepository.exclui(automovel);
+	}
 
 
 	public Automovel getAutomovel() {
