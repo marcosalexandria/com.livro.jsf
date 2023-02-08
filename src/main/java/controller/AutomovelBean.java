@@ -1,30 +1,34 @@
 package controller;
 
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
-import javax.persistence.EntityManager;
 
 import model.Automovel;
-import util.JPAUtil;
+import repository.AutomovelRepository;
 
 @ManagedBean
 public class AutomovelBean {
 	
 	private Automovel automovel = new Automovel();
+	AutomovelRepository automovelRepository = new AutomovelRepository();
+	private List<Automovel> automoveis;
+
+	public void salvar(){
+		automovelRepository.salvar(automovel);
+	}
 	
+	public List<Automovel> getAutomoveis(){
+		automoveis = automovelRepository.todos();
+		return automoveis;
+	}
+
+
 	public Automovel getAutomovel() {
 		return automovel;
 	}
 
 	public void setAutomovel(Automovel automovel) {
 		this.automovel = automovel;
-	}
-
-
-	public void salvar() {
-		EntityManager em = JPAUtil.getEntityManager();
-		em.getTransaction().begin();
-		em.persist(automovel);
-		em.getTransaction().commit();
-		em.close();
 	}
 }

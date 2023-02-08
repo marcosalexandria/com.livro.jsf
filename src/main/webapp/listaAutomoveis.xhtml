@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<h:dataTable value="#{automovelBean.automoveis}" var="automovel" border="1">
+		<h:column>
+			<f:facet name="header">
+				Id
+			</f:facet>
+			#{automovel.id}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				Marca
+			</f:facet>
+			#{automovel.marca}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				Modelo
+			</f:facet>
+			#{automovel.modelo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				Ano de Fabricação
+			</f:facet>
+			#{automovel.anoFabricacao}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				Ano do Modelo
+			</f:facet>
+			#{automovel.anoModelo}
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">
+				Observações
+			</f:facet>
+			#{automovel.observacoes}
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>
