@@ -1,8 +1,10 @@
 package controller;
 
 import javax.faces.bean.ManagedBean;
+import javax.persistence.EntityManager;
 
 import model.Automovel;
+import util.JPAUtil;
 
 @ManagedBean
 public class AutomovelBean {
@@ -18,7 +20,11 @@ public class AutomovelBean {
 	}
 
 
-	public void salvar(Automovel automovel) {
-		System.out.println(automovel.getMarca());
+	public void salvar() {
+		EntityManager em = JPAUtil.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(automovel);
+		em.getTransaction().commit();
+		em.close();
 	}
 }
