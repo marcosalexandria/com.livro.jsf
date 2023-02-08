@@ -19,7 +19,9 @@ public class AutomovelBean {
 	}
 	
 	public List<Automovel> getAutomoveis(){
-		automoveis = automovelRepository.todos();
+		if(automoveis == null) {
+			automoveis = automovelRepository.todos();
+		}
 		return automoveis;
 	}
 
