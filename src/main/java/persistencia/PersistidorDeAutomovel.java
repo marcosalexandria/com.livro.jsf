@@ -1,7 +1,8 @@
-package model;
+package persistencia;
 
 import javax.persistence.EntityManager;
 
+import model.Automovel;
 import util.JPAUtil;
 
 public class PersistidorDeAutomovel {
