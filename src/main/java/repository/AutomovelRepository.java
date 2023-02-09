@@ -15,13 +15,13 @@ public class AutomovelRepository {
 		em.persist(automovel);
 		em.getTransaction().commit();
 	}
-	
-	public List<Automovel> todos(){
+
+	public List<Automovel> todos() {
 		EntityManager em = JPAUtil.getEntityManager();
 		Query q = em.createQuery("SELECT a FROM Automovel a", Automovel.class);
 		return q.getResultList();
 	}
-	
+
 	public void exclui(Automovel automovel) {
 		EntityManager em = JPAUtil.getEntityManager();
 		em.getTransaction().begin();
