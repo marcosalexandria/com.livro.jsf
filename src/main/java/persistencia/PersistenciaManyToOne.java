@@ -14,9 +14,8 @@ public class PersistenciaManyToOne {
 		Modelo modelo = new Modelo();
 		
 		em.getTransaction().begin();
-		marca.setNome("WV");
-		em.persist(marca);
-		modelo.setNome("GOL");
+		marca.setNome("Fiat");
+		modelo.setNome("Mob");
 		modelo.setMontadora(marca);
 		em.persist(modelo);
 		em.getTransaction().commit();

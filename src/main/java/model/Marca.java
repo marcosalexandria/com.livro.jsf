@@ -1,10 +1,13 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -18,6 +21,9 @@ public class Marca {
 	//cascade = CascadeType.ALL Com isso, qualquer operação, como por exemplo persist, remove, merge que fizermos na Marca será feito também no DetalheMarca; por isso não precisamos chamar o persist nos dois lados.
 	@OneToOne(cascade = CascadeType.ALL)
 	private DetalheMarca detalheMarca;
+	
+	@OneToMany(mappedBy = "montadora")//O lado que não tem o mappedBy é o "dono" da relaçao
+	private List<Modelo> modelos;
 	
 	public Marca() {
 	}

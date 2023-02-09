@@ -2,6 +2,7 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Funcionario {
 	@Embedded
 	private Endereco endereco;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Cargo cargo;
 
 	public Funcionario() {
