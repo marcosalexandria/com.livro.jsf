@@ -1,9 +1,11 @@
 package model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,10 @@ public class Marca {
 	private Long id;
 	
 	private String nome;
-
+	//cascade = CascadeType.ALL Com isso, qualquer operação, como por exemplo persist, remove, merge que fizermos na Marca será feito também no DetalheMarca; por isso não precisamos chamar o persist nos dois lados.
+	@OneToOne(cascade = CascadeType.ALL)
+	private DetalheMarca detalheMarca;
+	
 	public Marca() {
 	}
 	
@@ -21,6 +26,14 @@ public class Marca {
 		super();
 		this.id = id;
 		this.nome = nome;
+	}
+	
+	public DetalheMarca getDetalheMarca() {
+		return detalheMarca;
+	}
+
+	public void setDetalheMarca(DetalheMarca detalheMarca) {
+		this.detalheMarca = detalheMarca;
 	}
 
 	public Long getId() {
@@ -38,4 +51,5 @@ public class Marca {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 }
