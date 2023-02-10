@@ -57,5 +57,18 @@ public class Marca {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public List<Modelo> getModelos() {
+		return modelos;
+	}
+
+	public void setModelos(List<Modelo> modelos) {
+		this.modelos = modelos;
+	}
+
+	@Override
+	public String toString() {
+		return "Marca [id=" + id + ", nome=" + nome + ", detalheMarca=" + detalheMarca + ", modelos=" + modelos + "]";
+	}
 	
 }

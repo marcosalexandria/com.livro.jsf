@@ -1,5 +1,7 @@
 package persistencia;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import model.Marca;
@@ -10,16 +12,15 @@ public class PersistenciaManyToOne {
 
 	public static void main(String[] args) {
 		EntityManager em = JPAUtil.getEntityManager();
-		Marca marca = new Marca();
-		Modelo modelo = new Modelo();
+		
 		
 		em.getTransaction().begin();
-		marca.setNome("Fiat");
-		modelo.setNome("Mob");
-		modelo.setMontadora(marca);
-		em.persist(modelo);
+		
+		Marca m = em.find(Marca.class, 1L);
+		List<Modelo> modelos = m.getModelos();
+		//só busca a lista quando ela é usada
+		Modelo modelo = modelos.get(0);
 		em.getTransaction().commit();
-		em.close();
 	}
 
 }
