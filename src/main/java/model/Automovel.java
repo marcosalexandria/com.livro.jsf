@@ -1,8 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Automovel {
@@ -15,6 +22,13 @@ public class Automovel {
 	private Integer anoFabricacao;
 	private Integer anoModelo;
 	private String observacoes;
+	@ManyToMany
+	//Configurando a tabela auxilixar, @JoinTable é colocada na entidade dona do relacionamento
+	@JoinTable(name = "T_AUTOMOVEIS_OPCIONAIS",
+			   joinColumns = @JoinColumn(name ="AUTO_ID"),
+			   inverseJoinColumns = @JoinColumn(name = "OPCIONAL_ID")
+			   )
+	private List<Opcionais> opcionais = new ArrayList<>();
 
 	public Automovel() {
 	}
@@ -76,5 +90,19 @@ public class Automovel {
 
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
+	}
+
+	public List<Opcionais> getOpcionais() {
+		return opcionais;
+	}
+
+	public void setOpcionais(List<Opcionais> opcionais) {
+		this.opcionais = opcionais;
+	}
+
+	@Override
+	public String toString() {
+		return "Automovel [id=" + id + ", marca=" + marca + ", modelo=" + modelo + ", anoFabricacao=" + anoFabricacao
+				+ ", anoModelo=" + anoModelo + ", observacoes=" + observacoes + ", opcionais=" + opcionais + "]";
 	}
 }
